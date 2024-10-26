@@ -809,6 +809,7 @@ parse_args (argc, argv, ctx)
 	  sctx->tx_delay = atoi (optarg);
 	  break;
 	case 'S': /* spoof */
+  fprintf (stderr, "SPOOF SET\n");
 	  ctx->default_receiver_flags |= pf_SPOOF;
 	  break;
 	case 'c': /* config file */
