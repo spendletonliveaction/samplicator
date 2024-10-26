@@ -27,8 +27,6 @@
 # endif
 #endif
 
-#define HAVE_SYS_UIO_H
-#define HAVE_NETINET_IN_SYSTM_H
 #ifdef HAVE_NETINET_IN_SYSTM_H
 #include <netinet/in_systm.h>
 #endif
@@ -82,7 +80,7 @@ raw_send_from_to (s, msg, msglen, saddr_generic, daddr_generic, ttl, flags)
   static size_t next_alloc_size = 1;
 #endif /* not HAVE_SYS_UIO_H */
 
-fprintf (stderr, "RAW_SEND_FROM_TO\n");
+//fprintf (stderr, "RAW_SEND_FROM_TO\n");
 
   uh.uh_sport = saddr->sin_port;
   uh.uh_dport = daddr->sin_port;
@@ -193,6 +191,7 @@ make_raw_udp_socket (sockbuflen, af)
      size_t sockbuflen;
      int af;
 {
+  fprintf (stderr, "creating spoof raw sock\n");
   int s;
   if (af == AF_INET6)
     {

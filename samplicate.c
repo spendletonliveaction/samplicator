@@ -474,10 +474,10 @@ send_pdu_to_receiver (receiver, fpdu, length, source_addr)
      size_t length;
      struct sockaddr * source_addr;
 {
-	fprintf (stderr, " RECEIVER FLAGS = %d \n", receiver->flags);
+	//fprintf (stderr, " RECEIVER FLAGS = %d \n", receiver->flags);
   if (1)
     {
-		fprintf (stderr, " spoof sent \n"); 
+		//fprintf (stderr, " spoof sent \n"); 
       int rawsend_flags
 	= ((receiver->flags & pf_CHECKSUM) ? RAWSEND_COMPUTE_UDP_CHECKSUM : 0);
       return raw_send_from_to (receiver->fd, fpdu, length,
