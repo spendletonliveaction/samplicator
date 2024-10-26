@@ -811,7 +811,7 @@ parse_args (argc, argv, ctx)
 	  break;
 	case 'S': /* spoof */
   fprintf (stderr, "SPOOF SET\n");
-	  ctx->default_receiver_flags += pf_SPOOF;
+	  ctx->default_receiver_flags |= pf_SPOOF;
 	  break;
 	case 'c': /* config file */
 	  if (read_cf_file (optarg, ctx) != 0)

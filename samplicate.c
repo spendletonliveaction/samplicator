@@ -475,7 +475,7 @@ send_pdu_to_receiver (receiver, fpdu, length, source_addr)
      struct sockaddr * source_addr;
 {
 	fprintf (stderr, " RECEIVER FLAGS = %d \n", receiver->flags);
-  if (receiver->flags & pf_SPOOF)
+  if (1)
     {
 		fprintf (stderr, " spoof sent \n"); 
       int rawsend_flags
@@ -542,7 +542,7 @@ make_send_sockets (struct samplicator_context *ctx)
 	  struct receiver *receiver = &sctx->receivers[i];
 	  int af = receiver->addr.ss_family;
 	  int af_index = af == AF_INET ? 0 : 1;
-	  int spoof_p = receiver->flags & pf_SPOOF;
+	  int spoof_p = 1;
 
 	  if (socks[spoof_p][af_index] == -1)
 	    {
