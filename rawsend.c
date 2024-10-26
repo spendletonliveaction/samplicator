@@ -26,6 +26,9 @@
 #  define memcpy(d, s, n) bcopy ((s), (d), (n))
 # endif
 #endif
+
+#define HAVE_SYS_UIO_H
+#define HAVE_NETINET_IN_SYSTM_H
 #ifdef HAVE_NETINET_IN_SYSTM_H
 #include <netinet/in_systm.h>
 #endif
