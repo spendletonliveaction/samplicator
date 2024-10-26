@@ -212,6 +212,7 @@ make_raw_udp_socket (sockbuflen, af)
 	}
     }
 
+#define IP_HDRINCL
 #ifdef IP_HDRINCL
   /* Some BSD-derived systems require the IP_HDRINCL socket option for
      header spoofing.  Contributed by Vladimir A. Jakovenko
