@@ -79,6 +79,8 @@ raw_send_from_to (s, msg, msglen, saddr_generic, daddr_generic, ttl, flags)
   static size_t next_alloc_size = 1;
 #endif /* not HAVE_SYS_UIO_H */
 
+fprintf (stderr, "RAW_SEND_FROM_TO\n");
+
   uh.uh_sport = saddr->sin_port;
   uh.uh_dport = daddr->sin_port;
   uh.uh_ulen = htons (msglen + sizeof uh);
