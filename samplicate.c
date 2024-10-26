@@ -474,6 +474,7 @@ send_pdu_to_receiver (receiver, fpdu, length, source_addr)
      size_t length;
      struct sockaddr * source_addr;
 {
+	fprintf (stderr, " RECEIVER FLAGS = %d \n", receiver->flags);
   if (receiver->flags & pf_SPOOF)
     {
 		fprintf (stderr, " spoof sent \n"); 
