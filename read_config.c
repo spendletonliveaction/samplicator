@@ -494,6 +494,7 @@ parse_receiver (struct receiver *receiverp,
   struct addrinfo hints, *res;
   int result;
 
+  fprintf (stderr, "DEFAULT RECEIVER FLAGS=%d\n", ctx->default_receiver_flags);
   receiverp->flags = ctx->default_receiver_flags;
   receiverp->freqcount = 0;
   receiverp->freq = 1;
