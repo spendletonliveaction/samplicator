@@ -476,6 +476,7 @@ send_pdu_to_receiver (receiver, fpdu, length, source_addr)
 {
   if (receiver->flags & pf_SPOOF)
     {
+		fprintf (stderr, " spoof sent \n"); 
       int rawsend_flags
 	= ((receiver->flags & pf_CHECKSUM) ? RAWSEND_COMPUTE_UDP_CHECKSUM : 0);
       return raw_send_from_to (receiver->fd, fpdu, length,
@@ -485,6 +486,7 @@ send_pdu_to_receiver (receiver, fpdu, length, source_addr)
     }
   else
     {
+		fprintf (stderr, " spoof not sent \n");
       return sendto (receiver->fd, (char*) fpdu, length, 0,
 		     (struct sockaddr*) &receiver->addr, receiver->addrlen);
     }
@@ -543,6 +545,7 @@ make_send_sockets (struct samplicator_context *ctx)
 
 	  if (socks[spoof_p][af_index] == -1)
 	    {
+			fprintf (stderr, " creating spoof socket \n");
 	      if ((socks[spoof_p][af_index] = make_udp_socket (ctx->sockbuflen, spoof_p, af)) < 0)
 		{
 		  if (spoof_p && errno == EPERM)

@@ -194,8 +194,10 @@ make_raw_udp_socket (sockbuflen, af)
       fprintf (stderr, "Spoofing not supported for IPv6\n");
       return -1;
     }
-  if ((s = socket (PF_INET, SOCK_RAW, IPPROTO_RAW)) == -1)
+  if ((s = socket (PF_INET, SOCK_RAW, IPPROTO_RAW)) == -1) {
+    fprintf (stderr, "created spoof raw sock\n");
     return s;
+  }
   if (sockbuflen != -1)
     {
       if (setsockopt (s, SOL_SOCKET, SO_SNDBUF,
