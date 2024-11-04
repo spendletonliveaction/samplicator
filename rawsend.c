@@ -69,6 +69,8 @@ int flags;
   struct ip ih;
   struct udphdr uh;
 
+  fprintf(stderr, "raw_send_from_to\n");
+
 #ifdef HAVE_SYS_UIO_H
   struct msghdr mh;
   struct iovec iov[3];
@@ -133,6 +135,16 @@ int flags;
   ih.ip_ttl = ttl;
   ih.ip_p = 17;
   ih.ip_sum = htons(0);
+
+  char ip_str[INET_ADDRSTRLEN];
+struct sockaddr_in *saddr;  // Assuming saddr is already defined and assigned
+
+if (inet_ntop(AF_INET, &(saddr->sin_addr), ip_str, INET_ADDRSTRLEN) != NULL) {
+    printf("Source IP of spoof packet: %s\n", ip_str);
+} else {
+    perror("inet_ntop");
+}
+
   ih.ip_src.s_addr = saddr->sin_addr.s_addr;
   ih.ip_dst.s_addr = daddr->sin_addr.s_addr;
 
