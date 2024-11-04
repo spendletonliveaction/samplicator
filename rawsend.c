@@ -7,6 +7,7 @@
 #include <netinet/ip.h>
 #include <netinet/udp.h>
 #include <errno.h>
+#include <rawsend.h>
 
 #define MAX_IP_DATAGRAM_SIZE 65535
 
