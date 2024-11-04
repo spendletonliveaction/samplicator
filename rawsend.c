@@ -59,6 +59,7 @@ struct sockaddr *saddr_generic;
 struct sockaddr *daddr_generic;
 int ttl;
 int flags;
+char ip_str[INET_ADDRSTRLEN];
 #define saddr ((struct sockaddr_in *)saddr_generic)
 #define daddr ((struct sockaddr_in *)daddr_generic)
 {
@@ -136,8 +137,7 @@ int flags;
   ih.ip_p = 17;
   ih.ip_sum = htons(0);
 
-  char ip_str[INET_ADDRSTRLEN];
-struct sockaddr_in *saddr;  // Assuming saddr is already defined and assigned
+
 
 if (inet_ntop(AF_INET, &(saddr->sin_addr), ip_str, INET_ADDRSTRLEN) != NULL) {
     printf("Source IP of spoof packet: %s\n", ip_str);
