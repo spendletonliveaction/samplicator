@@ -59,7 +59,7 @@ struct sockaddr *saddr_generic;
 struct sockaddr *daddr_generic;
 int ttl;
 int flags;
-char ip_str[INET_ADDRSTRLEN];
+
 #define saddr ((struct sockaddr_in *)saddr_generic)
 #define daddr ((struct sockaddr_in *)daddr_generic)
 {
@@ -69,7 +69,7 @@ char ip_str[INET_ADDRSTRLEN];
   struct sockaddr_in dest_a;
   struct ip ih;
   struct udphdr uh;
-
+  char ip_str[INET_ADDRSTRLEN];
   fprintf(stderr, "raw_send_from_to\n");
 
 #ifdef HAVE_SYS_UIO_H
